@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import LoadingBar from "react-top-loading-bar"; // Import LoadingBar
 
+
 function HomePage() {
+
+
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
@@ -38,15 +41,17 @@ function HomePage() {
     }
   }, []);
 
+
+
   return (
-    <div className="home-page container" style={{marginTop: '300px', marginLeft: '300px'}}>
+    <div className={`home-page container`} style={{ marginTop: '300px', marginLeft: '300px' }}>
       <LoadingBar
         color="#f11946"
         progress={100} // Set progress to 100 to hide the loading bar
       />
       <header>
         <h1 className="h123">
-        Welcome {userName && <span style={{ color: 'black' }}> {userName}</span>} to the GreenWebLab-Quiz
+        Welcome {userName && <span style={{ color: 'blue', fontWeight: 'bold',backdropFilter: 'blur(500px)' }} > {userName}</span>} to the GreenWebLab-Quiz
         </h1>
       </header>
       <main>
@@ -60,6 +65,7 @@ function HomePage() {
           </Link>
         </section>
       </main>
+
     </div>
   );
 }

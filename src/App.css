@@ -6,23 +6,79 @@
   object-fit: cover; /* Maintain the image aspect ratio and cover the container */
 }
 
+/* Default mode styles */
+.navbar-default {
+  background-color: rgb(0, 238, 255);
+}
+
+/* Dark mode styles */
+.navbar-dark {
+  background-color: black;
+  color: white;
+}
+
 /* Gradient background */
 body {
-    /* You can customize the gradient colors and direction here */
-    background: linear-gradient(to right, #63a6e1, #dc38c6);
-    /* Add any other background properties as needed */
-    background-size: cover;
-    background-attachment: fixed;
-  }
+  /* You can customize the gradient colors and direction here */
+  background: linear-gradient(to right, #63a6e1, #de5954);
+  /* Add any other background properties as needed */
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    240deg,
+    hsl(240deg 23% 89%) 0%,
+    hsl(251deg 71% 83%) 8%,
+    hsl(265deg 80% 74%) 18%,
+    hsl(281deg 75% 60%) 29%,
+    hsl(223deg 100% 67%) 39%,
+    hsl(198deg 100% 57%) 48%,
+    hsl(187deg 53% 79%) 57%,
+    hsl(163deg 56% 85%) 65%,
+    hsl(130deg 74% 81%) 72%,
+    hsl(77deg 77% 67%) 78%,
+    hsl(48deg 100% 60%) 84%,
+    hsl(37deg 100% 76%) 90%,
+    hsl(20deg 100% 88%) 95%,
+    hsl(0deg 11% 93%) 100%
+  );
+}
+
+/* Style the container to center the content */
+/* styles.css or App.css */
+.dark-mode {
+  background: linear-gradient(90deg, #2a2a2a 0%, #000000 100%);
+  color: #fff; /* Set text color for dark mode */
+}
+
+/* Dark mode styles for specific elements */
+.dark-mode .h123 {
+  color: rgb(12, 12, 23);
+  font-weight: bold;
+  backdrop-filter: blur(5px);
+}
+
+.dark-mode .container {
+  background: rgb(107, 144, 191);
+
+  background: linear-gradient(90deg, rgb(34, 47, 64) 0%, rgb(27, 52, 196) 100%);
   
-  /* Style the container to center the content */
+  background: -moz-linear-gradient(90deg, rgb(67, 89, 117) 0%, rgb(23, 47, 181) 100%);
+  
+  background: -webkit-linear-gradient(90deg, rgb(169, 190, 219) 0%, rgb(49, 61, 112) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0968E5", endColorstr="#091970", GradientType=1 );
+}
 
 .container {
-  background: linear-gradient(
-    90deg,
-    #dba6f3,
-    #14c9f2
-  );
+  background: hsla(146, 39%, 53%, 1);
+
+  background: linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, hsla(265, 68%, 45%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, hsla(265, 68%, 45%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, rgb(235, 202, 81) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#58B580", endColorstr="#A67BE0", GradientType=1 );
   padding: 20px; /* Add some padding to give space around the content */
   border-radius: 10px; /* Add a border radius for rounded corners */
   color: #000; /* Set the text color to white for better contrast */
@@ -32,7 +88,6 @@ body {
   margin-top: 100px;
   text-align: center;
 }
-
 
 .alert-container {
   position: absolute;
@@ -50,49 +105,44 @@ body {
 /* Quiz.css */
 
 .card-gradient {
-  background: linear-gradient(
-    45deg,
-    #00d2ff 0%,
-    #928dab 100%
-  );
+  background: linear-gradient(45deg, #00d2ff 0%, #928dab 100%);
   color: #000; /* Set the text color to white for better contrast */
 }
 
+/* Style the quiz questions */
+.quiz-question {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
 
-  /* Style the quiz questions */
-  .quiz-question {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Style the quiz options */
-  .quiz-option {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ce2121;
-    border-radius: 5px;
-  }
-  
-  /* Style the submit button */
-  .submit-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Style the quiz title */
-  .quiz-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
+/* Style the quiz options */
+.quiz-option {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ce2121;
+  border-radius: 5px;
+}
+
+/* Style the submit button */
+.submit-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the quiz title */
+.quiz-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 .home-page {
   text-align: center;
   margin: 20px;
@@ -100,14 +150,46 @@ body {
 }
 
 header {
-  background-color: #f80b0b;
+  background-image: linear-gradient(
+    230deg,
+    hsl(240deg 23% 89%) 0%,
+    hsl(251deg 71% 83%) 8%,
+    hsl(265deg 80% 74%) 18%,
+    hsl(281deg 75% 60%) 29%,
+    hsl(223deg 100% 67%) 39%,
+    hsl(198deg 100% 57%) 48%,
+    hsl(187deg 53% 79%) 57%,
+    hsl(163deg 56% 85%) 65%,
+    hsl(130deg 74% 81%) 72%,
+    hsl(77deg 77% 67%) 78%,
+    hsl(48deg 100% 60%) 84%,
+    hsl(37deg 100% 76%) 90%,
+    hsl(20deg 100% 88%) 95%,
+    hsl(0deg 11% 93%) 100%
+  );
   padding: 20px;
   border-radius: 5px;
 }
 
 .h123 {
-  color: #17e2d1;
-  font-family: 'Times New Roman', Times, serif;
+  color: linear-gradient(
+    230deg,
+    hsl(240deg 23% 89%) 0%,
+    hsl(251deg 71% 83%) 8%,
+    hsl(265deg 80% 74%) 18%,
+    hsl(281deg 75% 60%) 29%,
+    hsl(223deg 100% 67%) 39%,
+    hsl(198deg 100% 57%) 48%,
+    hsl(187deg 53% 79%) 57%,
+    hsl(163deg 56% 85%) 65%,
+    hsl(130deg 74% 81%) 72%,
+    hsl(77deg 77% 67%) 78%,
+    hsl(48deg 100% 60%) 84%,
+    hsl(37deg 100% 76%) 90%,
+    hsl(20deg 100% 88%) 95%,
+    hsl(0deg 11% 93%) 100%
+  );
+  font-family: "Times New Roman", Times, serif;
 }
 
 .quiz-description {
@@ -124,14 +206,30 @@ h2 {
 }
 
 .quiz-description {
-  color: #102af2;
+  color: linear-gradient(
+    230deg,
+    hsl(240deg 23% 89%) 0%,
+    hsl(251deg 71% 83%) 8%,
+    hsl(265deg 80% 74%) 18%,
+    hsl(281deg 75% 60%) 29%,
+    hsl(223deg 100% 67%) 39%,
+    hsl(198deg 100% 57%) 48%,
+    hsl(187deg 53% 79%) 57%,
+    hsl(163deg 56% 85%) 65%,
+    hsl(130deg 74% 81%) 72%,
+    hsl(77deg 77% 67%) 78%,
+    hsl(48deg 100% 60%) 84%,
+    hsl(37deg 100% 76%) 90%,
+    hsl(20deg 100% 88%) 95%,
+    hsl(0deg 11% 93%) 100%
+  );
   font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .start-button {
-  background-color: #4a0aeb;
-  color: #fff;
+  background-color: #070115;
+  color: #ef1010;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
@@ -142,7 +240,8 @@ h2 {
 }
 
 .start-button:hover {
-  background-color: #0c7515;
+  background-color: #01051a;
+  color: #1bef10;
 }
 
 .loader-container {
@@ -162,10 +261,19 @@ h2 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(90deg); }
-  50% { transform: rotate(180deg); }
-  75% { transform: rotate(270deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
