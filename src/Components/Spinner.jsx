@@ -1,8 +1,7 @@
 const Spinner = () => {
   return (
     <div className="loader-container">
-      <div className="mx-2"><h1>Please</h1></div><div className="loader"></div><div className="mx-2"><h1>Wait</h1></div>
-    </div>
+<img className="loader" src="../../Quiz-Images/spinner-icon-gif-25.jpg" alt="Loading" />    </div>
   );
 };
 
