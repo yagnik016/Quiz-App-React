@@ -14,7 +14,7 @@ function QuizCard({ quizItem, navigateToQuizDetails }) {
             <h2 className="card-title text-center mt-2">{quizItem.title}</h2>
             <button
               onClick={() => navigateToQuizDetails(quizItem.title)}
-              className="btn btn-dark"
+              className="btn btn-warning"
               style={{ marginLeft: "120px", marginTop: "15px" }}
             >
               Go to this Quiz

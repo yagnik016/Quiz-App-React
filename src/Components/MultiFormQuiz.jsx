@@ -37,12 +37,12 @@ const MultipleFormQuiz = ({
             <h3>
               {`Question ${currentQuestionIndex + 1}: ${quizData.questions[currentQuestionIndex].quizQuestionBank.title}`}
             </h3>
-            <p>
+            <h5 className="mt-3 mb-3 ">
               Description:{" "}
               {
                 quizData.questions[currentQuestionIndex].quizQuestionBank.description
               }
-            </p>
+            </h5>
 
             {quizData.questions[currentQuestionIndex].quizQuestionBank.quizQuestionOptionRandom.map((option) => (
               <QuizOption
@@ -65,7 +65,7 @@ const MultipleFormQuiz = ({
                 isOptionCorrect={isOptionCorrect}
               />
             )}
-            <div className="text-center d-flex justify-content-between">
+            <div className="text-center d-flex justify-content-between mt-3">
               <PreviousButton
                 onClick={handlePreviousQuestion}
                 disabled={submissionSuccess || currentQuestionIndex === 0 || !allowPrevious}

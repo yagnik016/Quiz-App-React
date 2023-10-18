@@ -10,7 +10,6 @@ import NoResults from "./NoResults";
 import Spinner from "./Spinner";
 import LoadingBar from "react-top-loading-bar"; // Import LoadingBar
 
-
 export default function Quiz() {
   const [quizData, setQuizData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -24,8 +23,7 @@ export default function Quiz() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const userToken =
-        localStorage.getItem('userToken');
+        const userToken = localStorage.getItem("userToken");
         const response = await axios.get(
           "https://www.api.greenweblab.com/v1/quiz/quiz-category",
           {
@@ -36,19 +34,16 @@ export default function Quiz() {
         );
         setProgress(60); // Update progress during loading
 
-     // Update progress during loading
-
+        // Update progress during loading
 
         setQuizData(response.data.data.items);
         setFilteredData(response.data.data.items);
         setLoading(false); // Mark loading as complete
         setProgress(100); // Set progress to 100 when loading is complete
-
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false); // Mark loading as complete even in case of an error
         setProgress(100); // Set progress to 100 when loading is complete
-
       }
     }
 
@@ -74,51 +69,53 @@ export default function Quiz() {
     navigate(`/quiz-details?category=${encodeURIComponent(category)}`);
   };
 
- 
   return (
     <>
-    <LoadingBar
+      <LoadingBar
         color="#f11946" // Customize the loading bar color
         progress={progress} // Pass the progress state to the LoadingBar component
       />
-    <div className="container" style={{ marginTop: '60px' }}>
-      {loading ? (
-        <>
-        <Spinner />
-        </> // Display the Loader while loading
-      ) : (
-        <div>
-          <div className="row">
-            <div className="col-md-12 mb-3">
-              <h1 style={{ textAlign: 'center' }}>Select a Category:</h1>
-              <CategorySelect
-                quizData={quizData}
-                selectedCategory={selectedCategory}
-                handleCategorySelect={handleCategorySelect}
+      <div className="container" style={{ marginTop: "60px" }}>
+        {loading ? (
+          <>
+            <Spinner />
+          </> // Display the Loader while loading
+        ) : (
+          <div>
+            <div className="row">
+              <div className="col-md-12 mb-3">
+                <h1 style={{ textAlign: "center" }}>Select a Category:</h1>
+                <CategorySelect
+                  quizData={quizData}
+                  selectedCategory={selectedCategory}
+                  handleCategorySelect={handleCategorySelect}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <SearchBar
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
               />
             </div>
+            <div className="row">
+              {filteredData.length === 0 ? (
+                <div className="col-12">
+                  {quizData.length > 0 && <NoResults />}
+                </div>
+              ) : (
+                filteredData.map((quizItem) => (
+                  <QuizCard
+                    key={quizItem.id}
+                    quizItem={quizItem}
+                    navigateToQuizDetails={navigateToQuizDetails}
+                  />
+                ))
+              )}
+            </div>
           </div>
-          <div className="row">
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          </div>
-          <div className="row">
-            {filteredData.length === 0 ? (
-              <div className="col-12">
-                {quizData.length > 0 && <NoResults />}
-              </div>
-            ) : (
-              filteredData.map((quizItem) => (
-                <QuizCard
-                  key={quizItem.id}
-                  quizItem={quizItem}
-                  navigateToQuizDetails={navigateToQuizDetails}
-                />
-              ))
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </>
   );
 }

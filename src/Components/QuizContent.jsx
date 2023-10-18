@@ -402,7 +402,7 @@ const QuizContent = () => {
 
  
   return (
-    <div className="container" style={{ marginTop: '200px', marginLeft: '300px' }}>
+    <div className="container" style={{ marginTop: '140px', marginLeft: '300px' }}>
       <LoadingBar
         color="#f11946"
         progress={progress}

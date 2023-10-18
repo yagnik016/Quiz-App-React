@@ -21,20 +21,14 @@ function SearchBar({ searchQuery, setSearchQuery }) {
   };
 
   return (
-    <div className="col-md-12 mb-3">
+    <div className="col-md-12 mb-3 ">
       <input
         type="text"
-        className="form-control"
+        className="form-control searchBar"
         placeholder="Search quizzes..."
         value={searchQuery}
         onChange={handleInputChange}
-        style={{
-          borderRadius: "20px",
-          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-          padding: "10px 20px",
-          fontSize: "16px",
-          width: "100%",
-        }}
+       
       />
       <LoadingBar
         color="#f11946"

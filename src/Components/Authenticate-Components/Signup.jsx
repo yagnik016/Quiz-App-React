@@ -69,16 +69,7 @@ const Signup = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: 'linear-gradient(to bottom right, #0073e6, #00b383)',
-        fontFamily: 'Arial, sans-serif',
-      }}
-    >
+    <div className='signup'>
       <div style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center' }}>
         {signupSuccess && (
           <Alert type="success" message="Signup Successful!" />

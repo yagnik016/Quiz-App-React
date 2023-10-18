@@ -16,7 +16,27 @@
   background-color: black;
   color: white;
 }
+.searchBar{
+  border-Radius: 20px;
+          box-Shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 10px 20px;
+          font-Size: 20px;
+          width: 100%;
+          background-Color:rgb(139, 214, 235);
+          color: #01051a;
 
+          border: 1px solid black;
+}
+
+.dark-mode .searchBar {
+  background-Color:rgb(139, 142, 235);
+color: #01051a;
+}
+:placeholder-shown {
+  color: #02061a;
+  font-size: large;
+  font-weight: bolder;
+}
 /* Gradient background */
 body {
   /* You can customize the gradient colors and direction here */
@@ -61,23 +81,46 @@ body {
   background: rgb(107, 144, 191);
 
   background: linear-gradient(90deg, rgb(34, 47, 64) 0%, rgb(27, 52, 196) 100%);
-  
-  background: -moz-linear-gradient(90deg, rgb(67, 89, 117) 0%, rgb(23, 47, 181) 100%);
-  
-  background: -webkit-linear-gradient(90deg, rgb(169, 190, 219) 0%, rgb(49, 61, 112) 100%);
-  
+
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(67, 89, 117) 0%,
+    rgb(23, 47, 181) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(169, 190, 219) 0%,
+    rgb(49, 61, 112) 100%
+  );
+
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0968E5", endColorstr="#091970", GradientType=1 );
 }
 
 .container {
   background: hsla(146, 39%, 53%, 1);
 
-  background: linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, hsla(265, 68%, 45%, 1) 100%);
-  
-  background: -moz-linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, hsla(265, 68%, 45%, 1) 100%);
-  
-  background: -webkit-linear-gradient(90deg, hsla(146, 39%, 53%, 1) 0%, hsla(266, 62%, 68%, 1) 50%, rgb(235, 202, 81) 100%);
-  
+  background: linear-gradient(
+    90deg,
+    hsla(146, 39%, 53%, 1) 0%,
+    hsla(266, 62%, 68%, 1) 50%,
+    hsla(265, 68%, 45%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(146, 39%, 53%, 1) 0%,
+    hsla(266, 62%, 68%, 1) 50%,
+    hsla(265, 68%, 45%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(146, 39%, 53%, 1) 0%,
+    hsla(266, 62%, 68%, 1) 50%,
+    rgb(235, 202, 81) 100%
+  );
+
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#58B580", endColorstr="#A67BE0", GradientType=1 );
   padding: 20px; /* Add some padding to give space around the content */
   border-radius: 10px; /* Add a border radius for rounded corners */
@@ -109,6 +152,11 @@ body {
   color: #000; /* Set the text color to white for better contrast */
 }
 
+.dark-mode .card-gradient {
+  background: linear-gradient(90deg, #2a2a2a 0%, #000000 100%);
+  color: #18d634; /* Set text color for dark mode */
+}
+
 /* Style the quiz questions */
 .quiz-question {
   background-color: #fff;
@@ -122,8 +170,16 @@ body {
 .quiz-option {
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ce2121;
+  border: 4px solid #e0ecdc;
   border-radius: 5px;
+  color: #0c0101;
+  font-size: larger;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight:549;
+}
+
+.dark-mode .quiz-option {
+  border: 4px solid #0d1101;
 }
 
 /* Style the submit button */
@@ -149,6 +205,33 @@ body {
   padding: 20px;
 }
 
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0073e6, #00b383);
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0073e6, #00b383);
+  font-family: Arial, sans-serif;
+}
+
+.dark-mode .login {
+  background: linear-gradient(90deg, #2a2a2a 0%, #000000 100%);
+  color: #fff; /* Set text color for dark mode */
+}
+
+.dark-mode .signup {
+  background: linear-gradient(90deg, #2a2a2a 0%, #000000 100%);
+  color: #fff; /* Set text color for dark mode */
+}
+
 header {
   background-image: linear-gradient(
     230deg,
@@ -171,25 +254,43 @@ header {
   border-radius: 5px;
 }
 
-.h123 {
-  color: linear-gradient(
-    230deg,
-    hsl(240deg 23% 89%) 0%,
-    hsl(251deg 71% 83%) 8%,
-    hsl(265deg 80% 74%) 18%,
-    hsl(281deg 75% 60%) 29%,
-    hsl(223deg 100% 67%) 39%,
-    hsl(198deg 100% 57%) 48%,
-    hsl(187deg 53% 79%) 57%,
-    hsl(163deg 56% 85%) 65%,
-    hsl(130deg 74% 81%) 72%,
-    hsl(77deg 77% 67%) 78%,
-    hsl(48deg 100% 60%) 84%,
-    hsl(37deg 100% 76%) 90%,
-    hsl(20deg 100% 88%) 95%,
-    hsl(0deg 11% 93%) 100%
+.dark-mode header {
+  background: rgb(107, 144, 191);
+
+  background: linear-gradient(
+    90deg,
+    rgb(194, 71, 170) 0%,
+    rgb(27, 52, 196) 100%
   );
+
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(160, 183, 212) 0%,
+    rgb(23, 47, 181) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(243, 135, 67) 0%,
+    rgb(69, 40, 74) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0968E5", endColorstr="#091970", GradientType=1 );
+}
+
+.h123 {
   font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.h12 {
+  color: #0c941c;
+  font-weight: bold;
+  backdrop-filter: blur(500px);
+}
+
+.dark-mode .h12 {
+  color: #0ceff3;
 }
 
 .quiz-description {
@@ -229,7 +330,7 @@ h2 {
 
 .start-button {
   background-color: #070115;
-  color: #ef1010;
+  color: #00f2ff;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
@@ -241,7 +342,7 @@ h2 {
 
 .start-button:hover {
   background-color: #01051a;
-  color: #1bef10;
+  color: #0dff00;
 }
 
 .loader-container {

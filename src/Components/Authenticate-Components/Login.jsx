@@ -83,15 +83,7 @@ const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: 'linear-gradient(to bottom right, #0073e6, #00b383)',
-      }}
-    >
+    <div className='login'>
       <div style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center' }}>
         {loginSuccess && (
           <Alert type="success" message="Login Successful!" />

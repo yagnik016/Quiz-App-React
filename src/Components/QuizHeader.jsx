@@ -19,16 +19,16 @@ const QuizHeader = ({ title, remainingTime, isRedTimer }) => {
 
   return (
     <div className="mx-3">
-      <h1 className="mb-5" style={{ textAlign: "center" }}>
+      <h1 style={{ textAlign: "center" }}>
         {title}
       </h1>
       <div className="text-center">
         <div className="text-center">
           <h2
             style={{
-              color: isRedTimer ? "red" : "green",
+              color: isRedTimer ? "red" : "#000",
               margin: "30px",
-              fontSize: "30px",
+              fontSize: "50px",
             }}
           >
     Time Remaining: {formatTime(remainingTime)} 
