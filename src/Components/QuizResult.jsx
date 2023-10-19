@@ -25,7 +25,7 @@ const QuizResult = ({
                 <h3>{`Question ${index + 1}: ${
                   question.quizQuestionBank.title
                 }`}</h3>
-                {quizDescription && <p>Quiz Description: {quizDescription}</p>}
+                {quizDescription && <h5>Quiz Description: {quizDescription}</h5>}
                 <QuestionResult
                   question={question}
                   selectedOption={
@@ -34,7 +34,7 @@ const QuizResult = ({
                   isOptionCorrect={isOptionCorrect}
                 />
                 {question.quizQuestionBank.explanation && (
-                  <p>Explanation: {question.quizQuestionBank.explanation}</p>
+                  <h5>Explanation: {question.quizQuestionBank.explanation}</h5>
                 )}
                 {question.quizQuestionBank.quizQuestionOptionRandom.map(
                   (option) => {

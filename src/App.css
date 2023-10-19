@@ -90,8 +90,8 @@ body {
 
   background: -webkit-linear-gradient(
     90deg,
-    rgb(169, 190, 219) 0%,
-    rgb(49, 61, 112) 100%
+    rgb(64, 118, 195) 0%,
+    rgb(114, 65, 168) 100%
   );
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0968E5", endColorstr="#091970", GradientType=1 );
@@ -109,14 +109,14 @@ body {
 
   background: -moz-linear-gradient(
     90deg,
-    hsla(146, 39%, 53%, 1) 0%,
+    rgb(216, 110, 238) 0%,
     hsla(266, 62%, 68%, 1) 50%,
     hsla(265, 68%, 45%, 1) 100%
   );
 
   background: -webkit-linear-gradient(
     90deg,
-    hsla(146, 39%, 53%, 1) 0%,
+    rgb(7, 234, 208) 0%,
     hsla(266, 62%, 68%, 1) 50%,
     rgb(235, 202, 81) 100%
   );
