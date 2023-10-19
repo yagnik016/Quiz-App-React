@@ -14,7 +14,7 @@ const QuizResult = ({
         Quiz Result
       </h1>
       {quizResult ? (
-        <div >
+        <div>
           <h1 className="text-center mb-5">
             Correct Answers: {quizResult.result.correct_count} out of{" "}
             {quizData?.quiz.no_of_question}
@@ -25,7 +25,9 @@ const QuizResult = ({
                 <h3>{`Question ${index + 1}: ${
                   question.quizQuestionBank.title
                 }`}</h3>
-                {quizDescription && <h5>Quiz Description: {quizDescription}</h5>}
+                {quizDescription && (
+                  <h5>Quiz Description: {quizDescription}</h5>
+                )}
                 <QuestionResult
                   question={question}
                   selectedOption={
@@ -82,7 +84,8 @@ const QuizResult = ({
           </div>
         </div>
       ) : (
-<h1 className="text-center">Loading quiz Result...</h1>      )}
+        <h1 className="text-center">Loading quiz Result...</h1>
+      )}
     </div>
   );
 };

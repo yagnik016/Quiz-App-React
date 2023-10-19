@@ -16,21 +16,21 @@
   background-color: black;
   color: white;
 }
-.searchBar{
-  border-Radius: 20px;
-          box-Shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          padding: 10px 20px;
-          font-Size: 20px;
-          width: 100%;
-          background-Color:rgb(139, 214, 235);
-          color: #01051a;
+.searchBar {
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 20px;
+  width: 100%;
+  background-color: rgb(139, 214, 235);
+  color: #01051a;
 
-          border: 1px solid black;
+  border: 1px solid black;
 }
 
 .dark-mode .searchBar {
-  background-Color:rgb(139, 142, 235);
-color: #01051a;
+  background-color: rgb(139, 142, 235);
+  color: #01051a;
 }
 :placeholder-shown {
   color: #02061a;
@@ -174,8 +174,8 @@ body {
   border-radius: 5px;
   color: #0c0101;
   font-size: larger;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight:549;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 549;
 }
 
 .dark-mode .quiz-option {

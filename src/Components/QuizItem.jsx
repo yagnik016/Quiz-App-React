@@ -23,7 +23,11 @@ function QuizItem({ quizItem }) {
             <h6> Wrong Answer Score:- -{quizItem.wrong_score_subtract}</h6>
             <h5> Quiz Time:- {quizItem.quiz_time} Seconds (per question)</h5>
 
-            <Link to={`/take-quiz/${quizItem.id}`} className="btn btn-warning" style={{marginLeft: '120px', marginTop: '15px'}}>
+            <Link
+              to={`/take-quiz/${quizItem.id}`}
+              className="btn btn-warning"
+              style={{ marginLeft: "120px", marginTop: "15px" }}
+            >
               Take This Quiz
             </Link>
           </div>

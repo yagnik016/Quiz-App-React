@@ -28,11 +28,10 @@ function SearchBar({ searchQuery, setSearchQuery }) {
         placeholder="Search quizzes..."
         value={searchQuery}
         onChange={handleInputChange}
-       
       />
       <LoadingBar
         color="#f11946"
-        progress={loadingBarVisible ? 99.99   : 100} // Show loading bar (30) or hide (100)
+        progress={loadingBarVisible ? 99.99 : 100} // Show loading bar (30) or hide (100)
         waitingTime={300}
       />
     </div>

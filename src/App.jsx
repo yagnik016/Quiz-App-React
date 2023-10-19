@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import Quiz from "./Components/Quiz"; 
+import Quiz from "./Components/Quiz";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuizDetails from "./Components/QuizDetails";
 import Login from "./Components/Authenticate-Components/Login";

@@ -31,7 +31,6 @@ const QuizContent = () => {
   const [loading, setLoading] = useState(true); // Add loading state
   const [progress, setProgress] = useState(0);
 
-
   const [remainingTime, setRemainingTime] = useState(
     parseInt(localStorage.getItem("remainingTime"), 10) || timer
   );
@@ -85,14 +84,10 @@ const QuizContent = () => {
         }
         setLoading(false); // Mark loading as complete
         setProgress(100); // Update progress during loading
-
-
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false); // Mark loading as complete
         setProgress(100); // Update progress during loading
-
-
       }
     };
 
@@ -400,13 +395,12 @@ const QuizContent = () => {
     }
   };
 
- 
   return (
-    <div className="container" style={{ marginTop: '140px', marginLeft: '300px' }}>
-      <LoadingBar
-        color="#f11946"
-        progress={progress}
-      />
+    <div
+      className="container"
+      style={{ marginTop: "140px", marginLeft: "300px" }}
+    >
+      <LoadingBar color="#f11946" progress={progress} />
       {loading ? (
         <Spinner /> // Display the Loader while loading
       ) : (

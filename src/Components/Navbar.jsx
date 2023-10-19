@@ -21,7 +21,7 @@ function Navbar() {
 
     // Store the dark mode setting in localStorage.
     localStorage.setItem("darkMode", newDarkMode);
-    
+
     // Toggle the dark mode by changing CSS classes or styles.
     document.body.classList.toggle("dark-mode");
   };
@@ -149,10 +149,7 @@ function Navbar() {
           <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
       </nav>
-      <LoadingBar
-        color="#f11946"
-        progress={loading ? 80 : 100}
-      />
+      <LoadingBar color="#f11946" progress={loading ? 80 : 100} />
       <div
         style={{
           position: "absolute",

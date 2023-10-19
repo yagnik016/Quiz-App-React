@@ -29,7 +29,6 @@ function QuizQuestions2() {
   const [quizResult2, setquizResult2] = useState(null);
   const [timeRemaining2, settimeRemaining2] = useState(null);
 
-
   useEffect(() => {
     const bearerToken =
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IjE4NzNlNTc5OTBhYzg0MyJ9.eyJzdWIiOiIxODczZTU3OTkwYWM4NDMiLCJpc3MiOiIiLCJhdWQiOiIiLCJpYXQiOjE2OTU4ODM0NDMsImV4cCI6MTcwNDUyMzQ0MywianRpIjoiOGQ2MThjN2Q1OWZhOTBkIiwiaWQiOjEzNywidXNlcm5hbWUiOiJ5MTYxNkBnbWFpbC5jb20iLCJuYW1lIjoiWWFnbmlrICJ9.KOfNlKoWq4vyob7hQLTuWuNK7DNUKxv6nCOZ_-XLxW4";
@@ -51,18 +50,19 @@ function QuizQuestions2() {
           `https://www.api.greenweblab.com/v1/quiz/quiz-view?id=${quizId}`,
           { headers }
         );
-        
+
         const quizData2FromApi = response.data.data;
         // Check if a question should be random
         const shouldRandomizeQuestion =
           quizData2FromApi.quiz.random_question === 1;
         // Check if an option should be random
-        const shouldRandomizeOption =
-          quizData2FromApi.quiz.random_option === 1;
+        const shouldRandomizeOption = quizData2FromApi.quiz.random_option === 1;
 
         // If random question is enabled, shuffle the questions
         if (shouldRandomizeQuestion) {
-          quizData2FromApi.questions = shuffleArray2(quizData2FromApi.questions);
+          quizData2FromApi.questions = shuffleArray2(
+            quizData2FromApi.questions
+          );
         }
 
         // If random option is enabled, shuffle the options for each question
@@ -81,7 +81,7 @@ function QuizQuestions2() {
           setselectedOptions2(JSON.parse(storedselectedOptions2));
         }
 
-        // Set the initial time remaining from the quiz data 
+        // Set the initial time remaining from the quiz data
         settimeRemaining2(quizData2FromApi.quiz.quiz_time);
         if (storedStartTime) {
           const currentTime = Date.now();
@@ -204,8 +204,6 @@ function QuizQuestions2() {
       }
     }
 
-    
-
     // Helper function to shuffle an array (Fisher-Yates shuffle)
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -220,77 +218,73 @@ function QuizQuestions2() {
   }, []);
 
   // ...
-  
 
-    const handleSubmitQuiz2 = async (e) => {
-  if(e){
-        e.preventDefault();
-  
-  }
-      try {
-        const bearerToken =
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImE1NTQzMDg4MjYwNjdjMSJ9.eyJzdWIiOiJhNTU0MzA4ODI2MDY3YzEiLCJpc3MiOiIiLCJhdWQiOiIiLCJpYXQiOjE2OTUzNjY3NjIsImV4cCI6MTcwNDAwNjc2MiwianRpIjoiODA0NGRkNjY1OWEzZmU0IiwiaWQiOjEzMSwidXNlcm5hbWUiOiJ5MTE2NEBnbWFpbC5jb20iLCJuYW1lIjoiWWFnbmlrICJ9.dOZj25o2iSOKfHnJeWye7Q04W0xFZys2gv7QVhirfyY";
-        const quizId = 12;
-  
-        const headers = {
-          Authorization: `Bearer ${bearerToken}`,
-        };
-  
-        const requestData = {
-          id: quizId,
-          answered: Object.entries(selectedOptions2).map(
-            ([questionId, optionIds]) => ({
-              question_id: parseInt(questionId, 10),
-              option_id: optionIds,
-            })
-          ),
-        };
-  
-        const response = await axios.post(
-          "https://www.api.greenweblab.com/v1/quiz/take",
-          requestData,
-          { headers }
-        );
-  
-        if (response.data.status) {
-          setsubmissionSuccess2(true);
-          setsubmissionError2(null);
-          setquizResult2(response.data.data);
-        } else {
-          setsubmissionError2(response.data.message);
-          setsubmissionSuccess2(false);
-        }
-        localStorage.removeItem("selectedOptions2");
-        localStorage.removeItem("quizStartTime");
-  
-      } catch (error) {
-        console.log(submissionError2);
-        console.error("Error submitting quiz:", error);
-        setsubmissionError2("An error occurred while submitting the quiz.");
+  const handleSubmitQuiz2 = async (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    try {
+      const bearerToken =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImE1NTQzMDg4MjYwNjdjMSJ9.eyJzdWIiOiJhNTU0MzA4ODI2MDY3YzEiLCJpc3MiOiIiLCJhdWQiOiIiLCJpYXQiOjE2OTUzNjY3NjIsImV4cCI6MTcwNDAwNjc2MiwianRpIjoiODA0NGRkNjY1OWEzZmU0IiwiaWQiOjEzMSwidXNlcm5hbWUiOiJ5MTE2NEBnbWFpbC5jb20iLCJuYW1lIjoiWWFnbmlrICJ9.dOZj25o2iSOKfHnJeWye7Q04W0xFZys2gv7QVhirfyY";
+      const quizId = 12;
+
+      const headers = {
+        Authorization: `Bearer ${bearerToken}`,
+      };
+
+      const requestData = {
+        id: quizId,
+        answered: Object.entries(selectedOptions2).map(
+          ([questionId, optionIds]) => ({
+            question_id: parseInt(questionId, 10),
+            option_id: optionIds,
+          })
+        ),
+      };
+
+      const response = await axios.post(
+        "https://www.api.greenweblab.com/v1/quiz/take",
+        requestData,
+        { headers }
+      );
+
+      if (response.data.status) {
+        setsubmissionSuccess2(true);
+        setsubmissionError2(null);
+        setquizResult2(response.data.data);
+      } else {
+        setsubmissionError2(response.data.message);
         setsubmissionSuccess2(false);
       }
-    };
-  
- useEffect(() => {
-  let intervalId2;
-
-  if (timeRemaining2 > 0) {
-    intervalId2 = setInterval(() => {
-      settimeRemaining2((prevTime) => prevTime - 1);
-    }, 1000);
-  } else if (timeRemaining2 === 0 && !submissionSuccess2) {
-    // Timer has reached 0 and submission is not successful, automatically submit the quiz
-    handleSubmitQuiz2();
-  }
-
-  return () => {
-    if (intervalId2) {
-      clearInterval(intervalId2);
+      localStorage.removeItem("selectedOptions2");
+      localStorage.removeItem("quizStartTime");
+    } catch (error) {
+      console.log(submissionError2);
+      console.error("Error submitting quiz:", error);
+      setsubmissionError2("An error occurred while submitting the quiz.");
+      setsubmissionSuccess2(false);
     }
   };
-  // eslint-disable-next-line
-}, [timeRemaining2, submissionSuccess2]);
 
+  useEffect(() => {
+    let intervalId2;
+
+    if (timeRemaining2 > 0) {
+      intervalId2 = setInterval(() => {
+        settimeRemaining2((prevTime) => prevTime - 1);
+      }, 1000);
+    } else if (timeRemaining2 === 0 && !submissionSuccess2) {
+      // Timer has reached 0 and submission is not successful, automatically submit the quiz
+      handleSubmitQuiz2();
+    }
+
+    return () => {
+      if (intervalId2) {
+        clearInterval(intervalId2);
+      }
+    };
+    // eslint-disable-next-line
+  }, [timeRemaining2, submissionSuccess2]);
 
   useEffect(() => {
     let intervalId;
@@ -399,7 +393,7 @@ function QuizQuestions2() {
 
   const handleSubmitQuiz = async () => {
     try {
-      const { quizData, selectedOptions,  } = state;
+      const { quizData, selectedOptions } = state;
 
       const selectedOptionIds = selectedOptions.map(
         (optionIndexes, questionIndex) =>
@@ -455,58 +449,59 @@ function QuizQuestions2() {
 
   const currentQuestion =
     quizData.questions[currentQuestionIndex].quizQuestionBank;
-    const correctAnswerIdsJSON =
+  const correctAnswerIdsJSON =
     quizData.questions[currentQuestionIndex]?.answered
-    ?.quiz_question_option_correct_id;
+      ?.quiz_question_option_correct_id;
   const correctAnswerIds = correctAnswerIdsJSON
     ? JSON.parse(correctAnswerIdsJSON)
     : [];
 
-    const isOptionCorrect = (questionId, optionId) => {
-      const question = quizData2?.questions.find(
-        (q) => q.quizQuestionBank.id === questionId
-      );
-      if (!question) return false;
-  
-      const selectedQuestionOptions = selectedOptions2[questionId];
-      if (!selectedQuestionOptions) return false;
-  
-      const correctOptionIds = JSON.parse(
-        question.answered.quiz_question_option_correct_id
-      );
-      return correctOptionIds.includes(optionId);
-    };
-  
-    const handleOptionChange2 = (questionId, optionId, questionType) => {
-      // Create a copy of the selectedOptions2 state
-      const newselectedOptions2 = { ...selectedOptions2 };
-    
-      // If the question type is "Single Select," remove any previous selections for this question
-      if (questionType === "Single Select") {
-        newselectedOptions2[questionId] = [optionId];
-      } else {
-        // If the question type is "Multi Select," toggle the selection of the clicked option
-        if (!newselectedOptions2[questionId]) {
-          newselectedOptions2[questionId] = [];
-        }
-    
-        const optionIndex = newselectedOptions2[questionId].indexOf(optionId);
-    
-        if (optionIndex === -1) {
-          // If the option is not selected, add it to the selected options
-          newselectedOptions2[questionId].push(optionId);
-        } else {
-          // If the option is already selected, remove it
-          newselectedOptions2[questionId].splice(optionIndex, 1);
-        }
+  const isOptionCorrect = (questionId, optionId) => {
+    const question = quizData2?.questions.find(
+      (q) => q.quizQuestionBank.id === questionId
+    );
+    if (!question) return false;
+
+    const selectedQuestionOptions = selectedOptions2[questionId];
+    if (!selectedQuestionOptions) return false;
+
+    const correctOptionIds = JSON.parse(
+      question.answered.quiz_question_option_correct_id
+    );
+    return correctOptionIds.includes(optionId);
+  };
+
+  const handleOptionChange2 = (questionId, optionId, questionType) => {
+    // Create a copy of the selectedOptions2 state
+    const newselectedOptions2 = { ...selectedOptions2 };
+
+    // If the question type is "Single Select," remove any previous selections for this question
+    if (questionType === "Single Select") {
+      newselectedOptions2[questionId] = [optionId];
+    } else {
+      // If the question type is "Multi Select," toggle the selection of the clicked option
+      if (!newselectedOptions2[questionId]) {
+        newselectedOptions2[questionId] = [];
       }
-      localStorage.setItem("selectedOptions2", JSON.stringify(newselectedOptions2));
-  
-      // Update the selectedOptions2 state with the new selections
-      setselectedOptions2(newselectedOptions2);
-    };
-    
-  
+
+      const optionIndex = newselectedOptions2[questionId].indexOf(optionId);
+
+      if (optionIndex === -1) {
+        // If the option is not selected, add it to the selected options
+        newselectedOptions2[questionId].push(optionId);
+      } else {
+        // If the option is already selected, remove it
+        newselectedOptions2[questionId].splice(optionIndex, 1);
+      }
+    }
+    localStorage.setItem(
+      "selectedOptions2",
+      JSON.stringify(newselectedOptions2)
+    );
+
+    // Update the selectedOptions2 state with the new selections
+    setselectedOptions2(newselectedOptions2);
+  };
 
   if (state.quizData && state.quizData.quiz.single_form === 1) {
     return (
@@ -552,7 +547,7 @@ function QuizQuestions2() {
                               : "transparent",
                             padding: "5px",
                           };
-  
+
                           return (
                             <div
                               key={option.id}
@@ -561,8 +556,8 @@ function QuizQuestions2() {
                             >
                               <input
                                 type={
-                                  question.quizQuestionBank.quizQuestionType.title ===
-                                  "Single Select"
+                                  question.quizQuestionBank.quizQuestionType
+                                    .title === "Single Select"
                                     ? "radio"
                                     : "checkbox"
                                 }
@@ -589,57 +584,65 @@ function QuizQuestions2() {
             <h1 className="mb-5" style={{ textAlign: "center" }}>
               {quizData2.quiz.title}
             </h1>
-            <div className="timer-container">Time Remaining: {timeRemaining2} seconds</div>
-  
+            <div className="timer-container">
+              Time Remaining: {timeRemaining2} seconds
+            </div>
+
             <form>
-            {quizData2 && quizData2.questions.map((question) => (
-                <div key={question.quizQuestionBank.id} className="mb-4">
-                  <h3>{question.quizQuestionBank.title}</h3>
-                  {question.quizQuestionBank.quizQuestionOptionRandom.map((option) => {
-                    const isOptionSelected = selectedOptions2[
-                      question.quizQuestionBank.id
-                    ]?.includes(option.id);
-                    const isCorrect = isOptionCorrect(
-                      question.quizQuestionBank.id,
-                      option.id
-                    );
-                    const optionStyle = submissionSuccess2
-                      ? isOptionSelected
-                        ? isCorrect
-                          ? { backgroundColor: "green" }
-                          : { backgroundColor: "red" }
-                        : isCorrect
-                        ? { backgroundColor: "green" }
-                        : {}
-                      : {};
-  
-                    return (
-                      <div key={option.id} className="quiz-option">
-                        <input
-                          type={
-                            question.quizQuestionBank.quizQuestionType.title ===
-                            "Single Select"
-                              ? "radio"
-                              : "checkbox"
-                          }
-                          name={`question-${question.quizQuestionBank.id}`}
-                          value={option.id}
-                          defaultChecked={isOptionSelected}
-                          onChange={() =>
-                            handleOptionChange2(
-                              question.quizQuestionBank.id,
-                              option.id,
-                              question.quizQuestionBank.quizQuestionType.title
-                            )
-                          }
-                          disabled={submissionSuccess2}
-                        />
-                        <span style={optionStyle}>{option.option_text}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
+              {quizData2 &&
+                quizData2.questions.map((question) => (
+                  <div key={question.quizQuestionBank.id} className="mb-4">
+                    <h3>{question.quizQuestionBank.title}</h3>
+                    {question.quizQuestionBank.quizQuestionOptionRandom.map(
+                      (option) => {
+                        const isOptionSelected = selectedOptions2[
+                          question.quizQuestionBank.id
+                        ]?.includes(option.id);
+                        const isCorrect = isOptionCorrect(
+                          question.quizQuestionBank.id,
+                          option.id
+                        );
+                        const optionStyle = submissionSuccess2
+                          ? isOptionSelected
+                            ? isCorrect
+                              ? { backgroundColor: "green" }
+                              : { backgroundColor: "red" }
+                            : isCorrect
+                            ? { backgroundColor: "green" }
+                            : {}
+                          : {};
+
+                        return (
+                          <div key={option.id} className="quiz-option">
+                            <input
+                              type={
+                                question.quizQuestionBank.quizQuestionType
+                                  .title === "Single Select"
+                                  ? "radio"
+                                  : "checkbox"
+                              }
+                              name={`question-${question.quizQuestionBank.id}`}
+                              value={option.id}
+                              defaultChecked={isOptionSelected}
+                              onChange={() =>
+                                handleOptionChange2(
+                                  question.quizQuestionBank.id,
+                                  option.id,
+                                  question.quizQuestionBank.quizQuestionType
+                                    .title
+                                )
+                              }
+                              disabled={submissionSuccess2}
+                            />
+                            <span style={optionStyle}>
+                              {option.option_text}
+                            </span>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                ))}
               <div className="text-center">
                 <button
                   className="btn btn-dark"
@@ -684,7 +687,7 @@ function QuizQuestions2() {
         showAnswers={showAnswers}
         correctAnswerIds={correctAnswerIds}
       />
-       <NavigationComponent
+      <NavigationComponent
         allowPrevious={quizData.quiz.allow_previous}
         isLastQuestion={isLastQuestion}
         handlePrevClick={handlePrevClick}

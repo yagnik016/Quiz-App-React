@@ -2,7 +2,12 @@ import PropTypes from "prop-types";
 
 function CategorySelect({ quizData, selectedCategory, handleCategorySelect }) {
   return (
-<div className="btn-group" role="group" aria-label="Categories" style={{ display: "none" }}>
+    <div
+      className="btn-group"
+      role="group"
+      aria-label="Categories"
+      style={{ display: "none" }}
+    >
       {quizData.length === 0 ? (
         <p>No Categories Found</p>
       ) : (

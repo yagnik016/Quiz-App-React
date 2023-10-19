@@ -8,7 +8,6 @@ import NoResults from "./NoResults";
 import Spinner from "./Spinner";
 import LoadingBar from "react-top-loading-bar";
 
-
 export default function QuizDetails() {
   const [quizzes, setQuizzes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,8 +17,6 @@ export default function QuizDetails() {
   const userToken = localStorage.getItem("userToken");
   const [loading, setLoading] = useState(true); // Add loading state
   const [progress, setProgress] = useState(0);
-
-
 
   useEffect(() => {
     // Fetch data from the API using async/await
@@ -45,7 +42,6 @@ export default function QuizDetails() {
         );
         setProgress(60); // Update progress during loading
 
-
         const filteredQuizzes = response.data.data.items.filter(
           (quizItem) =>
             quizItem.quizCategory.title === selectedCategory &&
@@ -62,12 +58,9 @@ export default function QuizDetails() {
         setQuizzes(filteredQuizzes);
         setLoading(false); // Mark loading as complete
         setProgress(100); // Set progress to 100 when loading is complete
-
-
       } catch (error) {
         console.error("Error fetching data:", error);
         setProgress(100); // Set progress to 100 when loading is complete
-
       }
     }
 
@@ -77,7 +70,6 @@ export default function QuizDetails() {
     // eslint-disable-next-line
   }, [selectedCategory, searchQuery, userToken]);
 
-  
   return (
     <div className="container mt-5">
       <CategoryHeader selectedCategory={selectedCategory} />
@@ -85,10 +77,7 @@ export default function QuizDetails() {
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
       <div className="row">
-        <LoadingBar
-          color="#f11946"
-          progress={progress}
-        />
+        <LoadingBar color="#f11946" progress={progress} />
         {loading ? (
           <Spinner />
         ) : noResults ? (
@@ -100,7 +89,11 @@ export default function QuizDetails() {
                 <h1 className="text-center mt-5">
                   Please log in to Proceed Further.
                 </h1>
-                <Link className="btn btn-warning mt-3" to="/login" style={{ marginLeft: "45%" }}>
+                <Link
+                  className="btn btn-warning mt-3"
+                  to="/login"
+                  style={{ marginLeft: "45%" }}
+                >
                   Go to Login
                 </Link>
               </div>

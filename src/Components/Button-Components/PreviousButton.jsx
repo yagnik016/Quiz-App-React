@@ -2,11 +2,7 @@ import PropTypes from "prop-types";
 
 const PreviousButton = ({ onClick, disabled }) => {
   return (
-    <button
-      className="btn btn-danger"
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button className="btn btn-danger" onClick={onClick} disabled={disabled}>
       Previous
     </button>
   );

@@ -9,7 +9,7 @@ const SingleFormQuiz = ({
   isOptionCorrect,
   handleOptionChange,
   submissionSuccess,
-  optionsLocked, 
+  optionsLocked,
   displayResult,
   handleSubmitQuiz,
 }) => {
@@ -18,18 +18,31 @@ const SingleFormQuiz = ({
   return (
     <div key={questionData.quizQuestionBank.id} className="mb-4">
       <h3>
-        {`Question ${questionData.index + 1}: ${questionData.quizQuestionBank.title}`}
+        {`Question ${questionData.index + 1}: ${
+          questionData.quizQuestionBank.title
+        }`}
       </h3>
       {questionData.quizQuestionBank.description && (
         <p>Description: {questionData.quizQuestionBank.description}</p>
-      ) }
+      )}
       {questionData.quizQuestionBank.quizQuestionOptionRandom.map((option) => (
         <QuizOption
           key={option.id}
           option={option}
-          isOptionSelected={selectedOptions[questionData.quizQuestionBank.id]?.includes(option.id)}
-          isCorrect={isOptionCorrect(questionData.quizQuestionBank.id, option.id)}
-          onChange={() => handleOptionChange(questionData.quizQuestionBank.id, option.id, questionData.quizQuestionBank.quizQuestionType.title)}
+          isOptionSelected={selectedOptions[
+            questionData.quizQuestionBank.id
+          ]?.includes(option.id)}
+          isCorrect={isOptionCorrect(
+            questionData.quizQuestionBank.id,
+            option.id
+          )}
+          onChange={() =>
+            handleOptionChange(
+              questionData.quizQuestionBank.id,
+              option.id,
+              questionData.quizQuestionBank.quizQuestionType.title
+            )
+          }
           questionId={questionData.quizQuestionBank.id}
           questionType={questionData.quizQuestionBank.quizQuestionType.title}
           submissionSuccess={submissionSuccess}
@@ -40,13 +53,18 @@ const SingleFormQuiz = ({
       {displayResult && (
         <QuestionResult
           questionData={questionData}
-          selectedOption={selectedOptions[questionData.quizQuestionBank.id]?.[0]}
+          selectedOption={
+            selectedOptions[questionData.quizQuestionBank.id]?.[0]
+          }
           isOptionCorrect={isOptionCorrect}
         />
       )}
       {isLastQuestion && (
         <div className="text-center">
-          <SubmitButton onClick={handleSubmitQuiz} disabled={submissionSuccess} />
+          <SubmitButton
+            onClick={handleSubmitQuiz}
+            disabled={submissionSuccess}
+          />
         </div>
       )}
     </div>

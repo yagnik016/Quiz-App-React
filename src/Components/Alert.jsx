@@ -1,9 +1,10 @@
-import  { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 const Alert = ({ type, message }) => {
   const alertClass = `alert alert-${type}`;
-  const textColor = type === 'danger' ? 'red' : type === 'success' ? 'green' : 'black';
+  const textColor =
+    type === "danger" ? "red" : type === "success" ? "green" : "black";
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -16,7 +17,14 @@ const Alert = ({ type, message }) => {
 
   return (
     <div>
-      <div style={{ minHeight: visible ? 'auto' : '65px',marginTop: '55px',fontSize: '30px',fontWeight: 'bold' }}>
+      <div
+        style={{
+          minHeight: visible ? "auto" : "65px",
+          marginTop: "55px",
+          fontSize: "30px",
+          fontWeight: "bold",
+        }}
+      >
         {visible && (
           <div className={alertClass} role="alert">
             <p style={{ color: textColor }}>{message}</p>
@@ -28,7 +36,7 @@ const Alert = ({ type, message }) => {
 };
 
 Alert.propTypes = {
-  type: PropTypes.oneOf(['success', 'info', 'warning', 'danger']).isRequired,
+  type: PropTypes.oneOf(["success", "info", "warning", "danger"]).isRequired,
   message: PropTypes.string.isRequired,
 };
 

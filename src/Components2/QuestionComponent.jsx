@@ -15,7 +15,7 @@ function QuestionComponent(props) {
     <div>
       <h3>Quiz Question {currentQuestionIndex + 1}</h3>
       <p>{currentQuestion.title}</p>
-      {currentQuestion.quizQuestionOptionRandom.map((option,index) => (
+      {currentQuestion.quizQuestionOptionRandom.map((option, index) => (
         <div
           key={option.id}
           style={{

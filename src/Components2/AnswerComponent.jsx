@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
 
 function AnswerComponent(props) {
-  const { currentQuestion, showAnswers,  } = props;
+  const { currentQuestion, showAnswers } = props;
 
   return (
     <div>
-      
       {showAnswers && (
         <div>
           <h4>Explanation:</h4>

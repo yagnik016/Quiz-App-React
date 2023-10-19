@@ -35,24 +35,47 @@ const MultipleFormQuiz = ({
             className="mb-4"
           >
             <h3>
-              {`Question ${currentQuestionIndex + 1}: ${quizData.questions[currentQuestionIndex].quizQuestionBank.title}`}
+              {`Question ${currentQuestionIndex + 1}: ${
+                quizData.questions[currentQuestionIndex].quizQuestionBank.title
+              }`}
             </h3>
             <h5 className="mt-3 mb-3 ">
               Description:{" "}
               {
-                quizData.questions[currentQuestionIndex].quizQuestionBank.description
+                quizData.questions[currentQuestionIndex].quizQuestionBank
+                  .description
               }
             </h5>
 
-            {quizData.questions[currentQuestionIndex].quizQuestionBank.quizQuestionOptionRandom.map((option) => (
+            {quizData.questions[
+              currentQuestionIndex
+            ].quizQuestionBank.quizQuestionOptionRandom.map((option) => (
               <QuizOption
                 key={option.id}
                 option={option}
-                isOptionSelected={selectedOptions[quizData.questions[currentQuestionIndex].quizQuestionBank.id]?.includes(option.id)}
-                isCorrect={isOptionCorrect(quizData.questions[currentQuestionIndex].quizQuestionBank.id, option.id)}
-                onChange={() => handleOptionChange(quizData.questions[currentQuestionIndex].quizQuestionBank.id, option.id, quizData.questions[currentQuestionIndex].quizQuestionBank.quizQuestionType.title)}
-                questionId={quizData.questions[currentQuestionIndex].quizQuestionBank.id}
-                questionType={quizData.questions[currentQuestionIndex].quizQuestionBank.quizQuestionType.title}
+                isOptionSelected={selectedOptions[
+                  quizData.questions[currentQuestionIndex].quizQuestionBank.id
+                ]?.includes(option.id)}
+                isCorrect={isOptionCorrect(
+                  quizData.questions[currentQuestionIndex].quizQuestionBank.id,
+                  option.id
+                )}
+                onChange={() =>
+                  handleOptionChange(
+                    quizData.questions[currentQuestionIndex].quizQuestionBank
+                      .id,
+                    option.id,
+                    quizData.questions[currentQuestionIndex].quizQuestionBank
+                      .quizQuestionType.title
+                  )
+                }
+                questionId={
+                  quizData.questions[currentQuestionIndex].quizQuestionBank.id
+                }
+                questionType={
+                  quizData.questions[currentQuestionIndex].quizQuestionBank
+                    .quizQuestionType.title
+                }
                 submissionSuccess={submissionSuccess}
                 optionsLocked={optionsLocked}
                 displayResult={displayResult}
@@ -61,19 +84,30 @@ const MultipleFormQuiz = ({
             {displayResult && (
               <QuestionResult
                 question={quizData.questions[currentQuestionIndex]}
-                selectedOption={selectedOptions[quizData.questions[currentQuestionIndex].quizQuestionBank.id]?.[0]}
+                selectedOption={
+                  selectedOptions[
+                    quizData.questions[currentQuestionIndex].quizQuestionBank.id
+                  ]?.[0]
+                }
                 isOptionCorrect={isOptionCorrect}
               />
             )}
             <div className="text-center d-flex justify-content-between mt-3">
               <PreviousButton
                 onClick={handlePreviousQuestion}
-                disabled={submissionSuccess || currentQuestionIndex === 0 || !allowPrevious}
+                disabled={
+                  submissionSuccess ||
+                  currentQuestionIndex === 0 ||
+                  !allowPrevious
+                }
               />
               {isLastQuestion() ? (
                 displayResultTrue ? (
                   resultShown ? (
-                    <SubmitButton onClick={handleSubmitQuiz} disabled={submissionSuccess} />
+                    <SubmitButton
+                      onClick={handleSubmitQuiz}
+                      disabled={submissionSuccess}
+                    />
                   ) : (
                     <button
                       className="btn btn-dark"
@@ -87,13 +121,19 @@ const MultipleFormQuiz = ({
                     </button>
                   )
                 ) : (
-                  <SubmitButton onClick={handleSubmitQuiz} disabled={submissionSuccess} />
+                  <SubmitButton
+                    onClick={handleSubmitQuiz}
+                    disabled={submissionSuccess}
+                  />
                 )
               ) : (
                 <NextButton
                   displayResultTrue={displayResultTrue}
                   onClick={handleNextQuestion}
-                  disabled={submissionSuccess || currentQuestionIndex === quizData.questions.length - 1}
+                  disabled={
+                    submissionSuccess ||
+                    currentQuestionIndex === quizData.questions.length - 1
+                  }
                 />
               )}
             </div>

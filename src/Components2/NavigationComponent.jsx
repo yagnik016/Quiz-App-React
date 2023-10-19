@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 
 function NavigationComponent(props) {
-  const { allowPrevious, isLastQuestion, handlePrevClick, handleSubmitQuiz, handleNextClick } = props;
+  const {
+    allowPrevious,
+    isLastQuestion,
+    handlePrevClick,
+    handleSubmitQuiz,
+    handleNextClick,
+  } = props;
 
   return (
     <div className="my-3 d-flex justify-content-between align-items-center">
@@ -9,9 +15,15 @@ function NavigationComponent(props) {
         <button onClick={handlePrevClick} className="btn btn-danger">
           Previous
         </button>
-      ):<button disabled={true} onClick={handlePrevClick} className="btn btn-danger">
-      Previous
-    </button>}
+      ) : (
+        <button
+          disabled={true}
+          onClick={handlePrevClick}
+          className="btn btn-danger"
+        >
+          Previous
+        </button>
+      )}
       {isLastQuestion ? (
         <button onClick={handleSubmitQuiz} className="btn btn-success">
           Submit Quiz
